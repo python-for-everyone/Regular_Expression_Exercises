@@ -1,0 +1,21 @@
+# From the list keep only the lines that start with a number or a letter after > sign.
+
+import re
+
+def number_or_letter(list_item):
+    pattern = re.compile(r'^[>][a-zA-Z]+|[[0-9]]')
+    result = pattern.search(list_item)
+    if result != None:
+        Filtered_List.append(result)
+    else:
+        print("The string in the list doesnt start with a number or letter after >: " + list_item)
+
+
+Filtered_List = []
+List = ['>Venues', '>Marketing', '>Medalists', '>Controversies', '>Paralympics', '>Snowboarding', '>[1]', '>[2]',
+        '>[3]', '>[4]', '>%']
+
+for list_item in List:
+    number_or_letter(list_item)
+for list_item in Filtered_List:
+    print(list_item.group())
